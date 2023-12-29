@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-int lower_bound(vector<int> arr,int size,int target){
+int lowerbound(vector<int> arr,int size,int target){
     int low=0,high=size-1,ans;
     while(low<=high){
         int mid=(low+high)/2;
@@ -13,8 +13,9 @@ int lower_bound(vector<int> arr,int size,int target){
             low=mid+1;
         }
     }
+    return ans;
 }
-int upper_bound(vector<int> arr,int size,int target){
+int upperbound(vector<int> arr,int size,int target){
     int low=0,high=size-1,ans;
     while(low<=high){
         int mid=(low+high)/2;
@@ -26,10 +27,11 @@ int upper_bound(vector<int> arr,int size,int target){
             low=mid+1;
         }
     }
+    return ans;
 }
 int num_occurences(vector<int> arr,int target){
-    int lb=lower_bound(arr,arr.size(),target);
-    int ub=upper_bound(arr,arr.size(),target);
+    int lb=lowerbound(arr,arr.size(),target);
+    int ub=upperbound(arr,arr.size(),target);
     if(arr[lb]!=target){return -1;}
     else{return ub-lb;}
 }
