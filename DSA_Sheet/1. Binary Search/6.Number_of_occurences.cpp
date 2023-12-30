@@ -16,7 +16,7 @@ int lowerbound(vector<int> arr,int size,int target){
     return ans;
 }
 int upperbound(vector<int> arr,int size,int target){
-    int low=0,high=size-1,ans;
+    int low=0,high=size-1,ans=arr.size();
     while(low<=high){
         int mid=(low+high)/2;
         if(arr[mid]>target){
